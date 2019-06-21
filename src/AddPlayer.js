@@ -5,9 +5,10 @@ import Input from './Input'
 class AddPlayer extends Component {
   
     state = {
-      fname: '',
-	  lname: '',
-      username: ''
+        fname: '',
+        lname: '',
+        username: '',
+        numGames: 0   
     }
 
     inputIsEmpty = () => {
@@ -49,7 +50,7 @@ class AddPlayer extends Component {
       console.log("addPlayer");
       // check if username is already registered
       if (! this.props.alreadyRegistered(this.state.username)) {
-      	this.props.onAddPlayer(this.state.username);
+      	this.props.onAddPlayer(this.state.username, this.state.numGames);
       }
     };
 

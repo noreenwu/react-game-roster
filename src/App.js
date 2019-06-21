@@ -16,13 +16,14 @@ The instructions for this project are located in the `instructions.md` file.
 class App extends Component {
   state = {
     users: [],
+    numGames: [],
     errorMsg: ''
-	// numGames: []
   }
 
-  addPlayer = (newuser) => {
+  addPlayer = (newuser, numgames) => {
     this.setState(oldState => ({
       users: [...oldState.users, newuser],
+      numGames: [...oldState.numGames, numgames]
     }));
   };
 
@@ -56,8 +57,7 @@ class App extends Component {
   			<AddPlayer onAddPlayer={this.addPlayer} alreadyRegistered={this.alreadyRegistered}/>
 		</div>
 		<DisplayMessages message={this.state.errorMsg}/>
-		<RegisteredPlayers users={this.state.users}/>
-
+		<RegisteredPlayers users={this.state.users} numGames={this.state.numGames}/>
       </div>
     );
   }
