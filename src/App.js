@@ -32,12 +32,15 @@ class App extends Component {
       if (newuser === u) {
         // set an error message to be displayed by DisplayMessages
         this.setState({
-          errorMsg: `There is already a username $[u}`
+          errorMsg: 'That username is already registered.'
         });
                    
         return true;
       }
     }
+    this.setState({
+      errorMsg: ''
+    });    
     return false;
   }
 
@@ -52,7 +55,7 @@ class App extends Component {
 			<h2>Add Players</h2>
   			<AddPlayer onAddPlayer={this.addPlayer} alreadyRegistered={this.alreadyRegistered}/>
 		</div>
-		<DisplayMessages/>
+		<DisplayMessages message={this.state.errorMsg}/>
 		<RegisteredPlayers users={this.state.users}/>
 
       </div>
